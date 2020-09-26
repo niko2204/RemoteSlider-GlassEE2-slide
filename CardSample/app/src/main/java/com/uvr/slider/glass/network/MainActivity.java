@@ -17,6 +17,8 @@
 package com.uvr.slider.glass.network;
 
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -71,9 +73,11 @@ public class MainActivity extends BaseActivity implements  BaseSliderView.OnSlid
 //        listName.add("WEBP - Mountain");
 
         HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("ba",R.raw.pulse16);
-        file_maps.put("bb",R.raw.pulse18);
-        file_maps.put("bc",R.raw.heart);
+        file_maps.put("bb",R.drawable.pulse01);
+        file_maps.put("ba",R.drawable.pulse02);
+        file_maps.put("bc",R.drawable.pulse03);
+        file_maps.put("bd",R.raw.heart);
+        file_maps.put("be",R.drawable.pulse04);
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.centerCrop();
@@ -153,6 +157,9 @@ public class MainActivity extends BaseActivity implements  BaseSliderView.OnSlid
     @Override
     public void onSliderClick(BaseSliderView slider) {
         Toast.makeText(this, slider.getBundle().getString("extra") + "", Toast.LENGTH_SHORT).show();
+        Log.i("ylee", "Current Position " + mSlider.getCurrentPosition());
+
+        mSlider.setCurrentPosition(1,false);
 
     }
 
